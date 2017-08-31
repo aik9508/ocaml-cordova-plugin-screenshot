@@ -10,24 +10,24 @@ module Response_file : sig
 end
 
 val save :
-  ?callback: (string option -> Response_file.t ->  unit) ->
-  ?format: string                                        ->
-  ?quality: int                                          ->
-  filename: string                                       ->
+  ?callback: (string option -> Response_file.t -> string Lwt.t) ->
+  ?format: string                                               ->
+  ?quality: int                                                 ->
+  filename: string                                              ->
   unit
 [@@js.global "navigator.screenshot.save"]
 
 val uri :
-  ?callback: (string option -> Response_uri.t ->  unit) ->
-  ?quality: int                                         ->
-  unit                                                  ->
+  ?callback: (string option -> Response_uri.t -> string Lwt.t) ->
+  ?quality: int                                                ->
+  unit                                                         ->
   unit
 [@@js.global "navigator.screenshot.URI"]
 
 val uri_sync : 
-  ?callback: (string option -> Response_uri.t -> unit) ->
-  ?quality: int                                        ->
-  unit                                                 ->
+  ?callback: (string option -> Response_uri.t -> string Lwt.t) ->
+  ?quality: int                                                ->
+  unit                                                         ->
   unit
 [@@js.global "navigator.screenshot.URISync"]
 (* -------------------------------------------------------------------------- *)
